@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="485.0" prefWidth="712.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.GUI.PIController">
+   <children>
+      <VBox prefHeight="504.0" prefWidth="181.0" style="-fx-background-color: #444;">
+         <children>
+            <Button fx:id="btnMenuActivite" mnemonicParsing="false" onAction="#fnMenuActivite" prefHeight="102.0" prefWidth="180.0" text="Activite">
+               <font>
+                  <Font size="25.0" />
+               </font></Button>
+            <Button fx:id="btnMenuPlanning" mnemonicParsing="false" onAction="#fnMenuPlanning" prefHeight="113.0" prefWidth="183.0" text="Planning">
+               <font>
+                  <Font size="25.0" />
+               </font></Button>
+            <ImageView fx:id="imd_act" fitHeight="200.0" fitWidth="180.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../../Downloads/img.png" />
+               </image>
+            </ImageView>
+         </children>
+      </VBox>
+      <StackPane layoutX="181.0" prefHeight="504.0" prefWidth="557.0">
+         <children>
+            <Pane fx:id="pnPlanning_Activite" layoutX="10.0" layoutY="10.0" prefHeight="400.0" prefWidth="539.0" style="-fx-background-color: #D3D3D3;">
+               <children>
+                  <Label layoutX="14.0" layoutY="14.0" text="page Planning_Activite">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Label>
+                  <TableView fx:id="tvPlanningACtivite" layoutX="99.0" layoutY="86.0" onMouseClicked="#fnSelectedPlanning" prefHeight="294.0" prefWidth="331.0">
+                     <columns>
+                        <TableColumn fx:id="col_idP_plAC" prefWidth="75.0" text="ID_PL" />
+                        <TableColumn fx:id="col_idA_plAC" prefWidth="75.0" text="ID_AC" />
+                        <TableColumn fx:id="col_duree_pl1" prefWidth="75.0" />
+                     </columns>
+                  </TableView>
+                  <Label fx:id="lbidpl1" prefHeight="17.0" prefWidth="33.0" />
+                  <Button fx:id="bntSupprimerPlanningActivite" layoutX="339.0" layoutY="390.0" mnemonicParsing="false" onAction="#fnSupprimerPlanning" text="SUPPRIMER" />
+               </children>
+            </Pane>
+            <Pane fx:id="pnActivite" layoutX="10.0" layoutY="10.0" prefHeight="504.0" prefWidth="540.0" style="-fx-background-color: #D3D3D3;">
+               <children>
+                  <Label layoutX="14.0" layoutY="14.0" text="page Activite">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Label>
+                  <TableView fx:id="tvActivite" layoutX="25.0" layoutY="98.0" onMouseClicked="#fnSelectedActivite" prefHeight="309.0" prefWidth="518.0">
+                     <columns>
+                        <TableColumn fx:id="col_id_AC" prefWidth="48.333343505859375" text="ID" />
+                        <TableColumn fx:id="col_nom_AC" prefWidth="69.3333740234375" text="NOM" />
+                        <TableColumn fx:id="col_duree_AC" prefWidth="56.0" text="DUREE" />
+                        <TableColumn fx:id="col_REP_AC" prefWidth="37.6666259765625" text="REP" />
+                        <TableColumn fx:id="col_DESC_AC" prefWidth="157.0" text="DESCRIPTION" />
+                        <TableColumn fx:id="col_OBJ_AC" prefWidth="72.66668701171875" text="OBJECTIF" />
+                        <TableColumn fx:id="col_TYPE_AC" prefWidth="72.66668701171875" text="TYPE" />
+                     </columns>
+                  </TableView>
+                  <Button fx:id="btnAjouterActivite" layoutX="125.0" layoutY="415.0" mnemonicParsing="false" onAction="#fnAjoutActivite" style="-fx-background-color: #6e984c;" text="AJOUTER" />
+                  <Button fx:id="bntModifierActivite" layoutX="279.0" layoutY="415.0" mnemonicParsing="false" onAction="#fnModifyActivite" style="-fx-background-color: #6e984c;" text="MODIFIER" />
+                  <Button fx:id="bntSupprimerActivite" layoutX="415.0" layoutY="415.0" mnemonicParsing="false" onAction="#fnSupprimerActivite" style="-fx-background-color: #6e984c;" text="SUPPRIMER" />
+                  <Label fx:id="lbidac" prefHeight="17.0" prefWidth="33.0" />
+                  <ChoiceBox fx:id="chR_typ_AC" layoutX="50.0" layoutY="60.0" prefWidth="150.0" />
+                  <ChoiceBox fx:id="chR_obj_AC" layoutX="239.0" layoutY="60.0" prefWidth="150.0" />
+                  <Button fx:id="generer_ac" layoutX="428.0" layoutY="60.0" mnemonicParsing="false" onAction="#rechercherActivites" text="Generer" />
+                  <Button fx:id="reset_ac" layoutX="498.0" layoutY="60.0" mnemonicParsing="false" onAction="#resetAffichage" text="Reset" />
+                  <Button fx:id="ActivitePlanning" layoutX="187.0" layoutY="458.0" mnemonicParsing="false" onAction="#fnAffecterActiviteAuPlanning" prefHeight="25.0" prefWidth="272.0" style="-fx-background-color: #444;" text="Ajouter Activiter a Planning" textFill="#d2d0d0" />
+                  <ChoiceBox fx:id="chnom_pl" layoutX="68.0" layoutY="458.0" prefHeight="25.0" prefWidth="107.0" />
+               </children>
+            </Pane>
+            <Pane fx:id="pnFormActivite" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #D3D3D3;">
+               <children>
+                  <HBox layoutX="76.0" layoutY="74.0" prefHeight="276.0" prefWidth="350.0">
+                     <children>
+                        <VBox prefHeight="216.0" prefWidth="146.0">
+                           <children>
+                              <Label layoutX="10.0" layoutY="10.0" prefHeight="40.0" prefWidth="146.0" text="NOM" textFill="#628253">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="10.0" layoutY="10.0" prefHeight="65.0" prefWidth="146.0" text="DUREE" textFill="#628253">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="10.0" layoutY="10.0" prefHeight="50.0" prefWidth="146.0" text="REPETITION" textFill="#628253">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="10.0" layoutY="124.0" prefHeight="57.0" prefWidth="162.0" text="OBJECTIF" textFill="#628253">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="10.0" layoutY="63.0" prefHeight="57.0" prefWidth="162.0" text="TYPE ACTIVITE" textFill="#628253">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="10.0" layoutY="10.0" prefHeight="57.0" prefWidth="162.0" text="DESCRIPTION " textFill="#628253">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="266.0" prefWidth="216.0">
+                           <children>
+                              <TextField fx:id="tfnomac" layoutX="10.0" layoutY="10.0" prefHeight="60.0" prefWidth="210.0" />
+                              <TextField fx:id="tfdureac" layoutX="10.0" layoutY="10.0" prefHeight="60.0" prefWidth="210.0" />
+                              <TextField fx:id="tfrepac" layoutX="10.0" layoutY="10.0" prefHeight="76.0" prefWidth="210.0" />
+                              <ChoiceBox fx:id="ch_ob_ac" prefHeight="63.0" prefWidth="206.0" />
+                              <ChoiceBox fx:id="ch_ty_ac" prefHeight="68.0" prefWidth="207.0" />
+                              <TextField fx:id="tfdescac" layoutX="10.0" layoutY="10.0" prefHeight="85.0" prefWidth="206.0" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <Button fx:id="btnconfAoutAC" layoutX="336.0" layoutY="407.0" mnemonicParsing="false" onAction="#fnConfAC" prefHeight="33.0" prefWidth="90.0" style="-fx-background-color: #6e984c;" text="CONFIRMER" />
+                  <Label fx:id="lbTitleAjoutACTIVITE" layoutX="48.0" layoutY="20.0" text="Ajouter un Activité">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lbTitleModifierACTIVITE" layoutX="48.0" layoutY="20.0" text="Modifier un Activité">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane fx:id="pnPlanning" prefHeight="400.0" prefWidth="539.0" style="-fx-background-color: #D3D3D3;">
+               <children>
+                  <Label layoutX="14.0" layoutY="14.0" text="page Planning">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Label>
+                  <TableView fx:id="tvPlanning" layoutX="73.0" layoutY="53.0" onMouseClicked="#fnSelectedPlanning" prefHeight="294.0" prefWidth="331.0">
+                    <columns>
+                      <TableColumn fx:id="col_id_pl" prefWidth="75.0" text="ID" />
+                      <TableColumn fx:id="col_nom_pl" prefWidth="75.0" text="NOM" />
+                        <TableColumn fx:id="col_duree_pl" prefWidth="75.0" text="DUREE" />
+                    </columns>
+                  </TableView>
+                  <Label fx:id="lbidpl" prefHeight="17.0" prefWidth="33.0" />
+                  <Button fx:id="btnAjouterPlanning1" layoutX="63.0" layoutY="371.0" mnemonicParsing="false" onAction="#fnAjoutPlanning" style="-fx-background-color: #6e984c;" text="AJOUTER" />
+                  <Button fx:id="bntModifierPlanning1" layoutX="156.0" layoutY="371.0" mnemonicParsing="false" onAction="#fnModifyPlanning" style="-fx-background-color: #6e984c;" text="MODIFIER" />
+                  <Button fx:id="bntSupprimerPlanning1" layoutX="256.0" layoutY="371.0" mnemonicParsing="false" onAction="#fnSupprimerPlanning" style="-fx-background-color: #6e984c;" text="SUPPRIMER" />
+               </children>
+            </Pane>
+            <Pane fx:id="pnFormPlanning" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #D3D3D3;">
+               <children>
+                  <HBox layoutX="78.0" layoutY="129.0" prefHeight="266.0" prefWidth="350.0">
+                     <children>
+                        <VBox prefHeight="266.0" prefWidth="157.0">
+                           <children>
+                              <Label prefHeight="57.0" prefWidth="162.0" text="NOM" textFill="#628253">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="10.0" layoutY="10.0" prefHeight="57.0" prefWidth="162.0" text="DUREE" textFill="#628253">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="266.0" prefWidth="216.0">
+                           <children>
+                              <TextField fx:id="tfnompl" prefHeight="58.0" prefWidth="205.0" />
+                              <TextField fx:id="tfdurepl" layoutX="10.0" layoutY="10.0" prefHeight="58.0" prefWidth="205.0" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <Button fx:id="btnconfAoutPL" layoutX="253.0" layoutY="395.0" mnemonicParsing="false" onAction="#fnConfPL" prefHeight="46.0" prefWidth="100.0" style="-fx-background-color: #6e984c;" text="CONFIRMER" />
+                  <Label fx:id="lbTitleAjoutPlanning" layoutX="48.0" layoutY="20.0" text="Ajouter un Planning">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lbTitleModifierPlanning" layoutX="48.0" layoutY="20.0" text="Modifier un Planning">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+         </children>
+      </StackPane>
+   </children>
+</AnchorPane>
